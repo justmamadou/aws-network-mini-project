@@ -33,9 +33,6 @@ Ce projet vise à concevoir et déployer une architecture réseau sécurisée et
 - **Route 53**: Service DNS pour la gestion des noms de domaine.
 - **NAT Gateway**: Permet aux instances dans des subnets privés d'accéder à Internet tout en restant inaccessibles de l'extérieur.
 
-## Temps de Réalisation
-
-Ce projet est conçu pour être complété en **4 heures maximum**.
 
 ## Étapes du Projet
 
