@@ -1,64 +1,31 @@
-variable "region" {
-  default     = "eu-west-1"
-  description = "AWS region"
+variable "vpc_name" {
+  description = "VPC name"
+  type = list(string)
+  default = [ "BASTION_VPC", "APP_VPC" ]
 }
 
-variable "bastion" {
-  description = "name of resource"
-  type = string
-  default = "bastion"
+variable "vpc_cidr" {
+  description = "VPC CIRD"
+  type = list(string)
+  default = [ "10.0.0.0/16", "10.1.0.0/16" ]
 }
 
-variable "app" {
-  description = "name of resource"
-  type = string
-  default = "app"
+variable "azs" {
+  description = "Availibity zone"
+  type = list(string)
+  default = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
 }
 
-variable "bastion_vpc" {
-  description = "Name for the bastion vpc"
-  type        = string
-  default = "BASTION-VPC" 
+
+variable "private_subnets_cidr" {
+  description = "private subnets cidr"
+  type = list(string)
+  default = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
 }
 
-variable "app_vpc" {
-  description = "Name for the app vpc"
-  type        = string
-  default = "APP-VPC" 
+variable "public_subnets_cidr" {
+  description = "public subnets cidr"
+  type = list(string)
+  default = ["10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24"]
 }
 
-variable "bastion_vpc_cidr" {
-  description = "CIDR for the bastion vpc"
-  type        = string
-  default     = "10.0.0.0/16"
-}
-
-variable "app_vpc_cidr" {
-  description = "CIDR for the app vpc"
-  type        = string
-  default     = "10.1.0.0/16"
-}
-
-variable "instance_types" {
-  description = "instance types"
-  type = string
-  default = "t2.micro"
-}
-
-data "aws_availability_zones" "available" {}
-
-variable "bastion_azs" {
-  description = "Availability zones"
-  default = slice(data.aws_availability_zones.available.names, 0, 1)
-}
-
-variable "app_azs" {
-  description = "Availability zones"
-  default = slice(data.aws_availability_zones.available.names, 0, 2)
-}
-
-variable "app_nlb_name" {
-  description = "name for the network load balancer"
-  type = string
-  default = "app-nlb"
-}

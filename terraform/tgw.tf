@@ -1,3 +1,4 @@
+/*
 module "tgw" {
   source  = "terraform-aws-modules/transit-gateway/aws"
   version = "~> 2.0"
@@ -41,3 +42,4 @@ module "tgw" {
     Purpose = "tgw-complete-example"
   }
 }
+*/
