@@ -9,8 +9,7 @@ module "bastion_vpc" {
 
   azs             = var.azs
   public_subnets  = var.public_subnets_cidr
-
-
+  
   tags = {
     Terraform = "true"
     Environment = "dev"

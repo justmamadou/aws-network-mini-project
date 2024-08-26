@@ -5,7 +5,7 @@ variable "vpc_name" {
 }
 
 variable "vpc_cidr" {
-  description = "VPC CIRD"
+  description = "VPC CIDR"
   type = list(string)
   default = [ "10.0.0.0/16", "10.1.0.0/16" ]
 }
