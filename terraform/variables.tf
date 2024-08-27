@@ -10,22 +10,34 @@ variable "vpc_cidr" {
   default = [ "10.0.0.0/16", "10.1.0.0/16" ]
 }
 
-variable "azs" {
+variable "app_azs" {
   description = "Availibity zone"
   type = list(string)
   default = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
 }
 
-
-variable "private_subnets_cidr" {
-  description = "private subnets cidr"
+variable "bastion_azs" {
+  description = "Availibity zone"
   type = list(string)
-  default = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
+  default = ["eu-west-1a"]
 }
 
-variable "public_subnets_cidr" {
+
+variable "app_private_subnets_cidr" {
+  description = "private subnets cidr"
+  type = list(string)
+  default = ["10.1.1.0/24", "10.1.2.0/24", "10.1.3.0/24"]
+}
+
+variable "app_public_subnets_cidr" {
   description = "public subnets cidr"
   type = list(string)
-  default = ["10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24"]
+  default = ["10.1.101.0/24", "10.1.102.0/24", "10.1.103.0/24"]
+}
+
+variable "bastion_public_subnets_cidr" {
+  description = "public subnets cidr"
+  type = list(string)
+  default = ["10.0.101.0/24"]
 }
 
